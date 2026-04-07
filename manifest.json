@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Cipher Highlighter",
+  "description": "Encrypt or decrypt highlighted text with Caesar and Rail Fence ciphers.",
+  "version": "1.0.0",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_title": "Cipher Highlighter",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

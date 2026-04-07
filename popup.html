@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cipher Highlighter</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <!-- Main popup card: one input/output field plus controls -->
+    <main class="card">
+      <h1>Cipher Highlighter</h1>
+
+      <label for="ioField">Input / Output</label>
+      <textarea id="ioField" rows="7" placeholder="Paste text or load selected text..."></textarea>
+
+      <div class="row"> <!-- Menu button pang select ng cipher -->
+        <label for="cipher">Cipher</label>
+        <select id="cipher">
+          <option value="caesar">Caesar</option>
+          <option value="railfence">Rail Fence</option>
+          <option value="combo">Caesar Backyard Fence</option>
+        </select>
+      </div>
+
+      <div id="caesar" class="row">
+        <label for="shift">Shift</label>
+        <input id="shift" type="number" min="0" max="25" value="3" />
+      </div>
+
+      <div id="rail" class="row hidden">
+        <label for="rails">Rails</label>
+        <input id="rails" type="number" min="2" value="3" />
+      </div>
+
+      <div class="grid">
+        <!-- Actions: load selected page text, transform it, then copy result -->
+        <button id="loadSelection" type="button">Load Highlighted</button>
+        <button id="copyOutput" type="button">Copy Output</button>
+        <button id="encrypt" type="button" class="accent">Encrypt</button>
+        <button id="decrypt" type="button">Decrypt</button>
+      </div>
+
+      <p id="status" role="status" aria-live="polite"></p>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

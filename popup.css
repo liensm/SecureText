@@ -1,0 +1,89 @@
+/* Colors */
+:root {
+  --bg-1: #f7f3ea;
+  --bg-2: #e8dcc8;
+  --card: #fffdf8;
+  --ink: #2f2419;
+  --accent: #b65e1d;
+  --muted: #7a6853;
+  --border: #d9c7b2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Popup styling and background. */
+body {
+  margin: 0;
+  width: 360px;
+  min-height: 460px;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top right, var(--bg-1), var(--bg-2));
+}
+
+.card {
+  padding: 14px;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+}
+
+textarea,
+select,
+input,
+button {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+  margin-bottom: 10px;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+button {
+  background: #f8f1e8;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+button.accent {
+  background: var(--accent);
+  color: #fff;
+  border-color: #a45318;
+}
+
+#status {
+  min-height: 20px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.hidden {
+  display: none;
+}
