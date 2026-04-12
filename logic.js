@@ -201,16 +201,29 @@ async function withActiveTab(callback) {
 
 async function loadHighlightedText() {
   await withActiveTab(async (tabId) => {
-    const response = await chrome.tabs.sendMessage(tabId, { type: "GET_SELECTION" });
-    const text = response?.text || "";
+    try {
+      // 🔥 Inject content script manually (FIX)
+      await chrome.scripting.executeScript({
+        target: { tabId: tabId },
+        files: ["textretriever.js"]
+      });
 
-    if (!text) {
-      showStatus("No highlighted text found.");
-      return;
+      // Now send message
+      const response = await chrome.tabs.sendMessage(tabId, { type: "GET_SELECTION" });
+
+      const text = response?.text || "";
+
+      if (!text) {
+        showStatus("No highlighted text found.");
+        return;
+      }
+
+      ioField.value = text;
+      showStatus("Loaded highlighted text.");
+    } catch (error) {
+      showStatus("Error loading highlighted text.");
+      console.error(error);
     }
-
-    ioField.value = text;
-    showStatus("Loaded highlighted text.");
   });
 }
 
